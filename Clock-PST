@@ -1,0 +1,20 @@
+pip install pytz
+import datetime
+import pytz
+
+def get_pst_time():
+    # Define the PST time zone
+    pst = pytz.timezone('US/Pacific')
+
+    # Get the current time in the PST time zone
+    current_time = datetime.datetime.now(pst)
+    return current_time
+
+def main():
+    while True:
+        pst_time = get_pst_time()
+        formatted_time = pst_time.strftime('%Y-%m-%d %H:%M:%S %Z%z')  # Format the time
+        print("Current PST Time:", formatted_time)
+
+if __name__ == "__main__":
+    main()
